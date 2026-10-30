@@ -1,0 +1,124 @@
+/* GeoInundate Dashboard Custom Theme */
+
+/* Header & Banner */
+.main-header {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0369A1 100%);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+.main-header h1 {
+    color: #F8FAFC !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 6px !important;
+    letter-spacing: -0.02em;
+}
+
+.main-header p {
+    color: #94A3B8 !important;
+    font-size: 1.05rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* KPI Cards */
+.kpi-card {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.kpi-card:hover {
+    border-color: #0284C7;
+    transform: translateY(-2px);
+}
+
+.kpi-card.danger {
+    border-left: 4px solid #DC2626;
+    background: linear-gradient(180deg, rgba(220, 38, 38, 0.08) 0%, #1E293B 100%);
+}
+
+.kpi-card.info {
+    border-left: 4px solid #0284C7;
+    background: linear-gradient(180deg, rgba(2, 132, 199, 0.08) 0%, #1E293B 100%);
+}
+
+.kpi-card.success {
+    border-left: 4px solid #10B981;
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, #1E293B 100%);
+}
+
+.kpi-card.warning {
+    border-left: 4px solid #F59E0B;
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, #1E293B 100%);
+}
+
+.kpi-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94A3B8;
+    margin-bottom: 6px;
+}
+
+.kpi-value {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+.kpi-sub {
+    font-size: 0.8rem;
+    color: #64748B;
+}
+
+/* Badges */
+.badge-pill {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.badge-sentinel {
+    background-color: rgba(2, 132, 199, 0.2);
+    color: #38BDF8;
+    border: 1px solid #0284C7;
+}
+
+.badge-mndwi {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34D399;
+    border: 1px solid #10B981;
+}
+
+.badge-otsu {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #FBBF24;
+    border: 1px solid #F59E0B;
+}
+
+/* Data Table Styling */
+div[data-testid="stDataFrame"] {
+    border: 1px solid #334155;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Sidebar Styling */
+section[data-testid="stSidebar"] {
+    background-color: #0B1120;
+    border-right: 1px solid #1E293B;
+}
