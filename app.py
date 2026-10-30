@@ -225,7 +225,6 @@ with st.sidebar:
             "📊 6. Impact Statistics",
             "🗺️ 7. Interactive Flood Map",
             "📥 8. Download Results",
-            "ℹ️ 9. About the Project",
         ],
         index=0,
     )
@@ -716,53 +715,5 @@ elif "📥 8. Download" in nav_selection:
                 )
             st.caption("Georeferenced categorical raster (0=Land, 1=Perm, 2=Inundated).")
 
-# 9. ABOUT THE PROJECT & METHODOLOGY
-elif "ℹ️ 9. About" in nav_selection:
-    st.markdown("## ℹ️ About GeoInundate & Scientific Methodology")
 
-    st.markdown(
-        """
-        ### 📖 Scientific Framework
 
-        #### 1. Modified Normalized Difference Water Index (MNDWI)
-        Water bodies possess characteristic low reflectance across optical spectra with prominent absorption in
-        the Shortwave Infrared (SWIR) region. The Modified Normalized Difference Water Index (**MNDWI**),
-        introduced by Hanqiu Xu in 2006, modifies McFeeters' original NDWI by substituting the Near-Infrared (NIR)
-        band with SWIR1:
-
-        $$\\text{MNDWI} = \\frac{\\text{Green} - \\text{SWIR}}{\\text{Green} + \\text{SWIR}}$$
-
-        For **Sentinel-2 MSI**:
-        - **Green:** Band 3 (Central Wavelength: $560\\text{ nm}$, Native Spatial Resolution: $10\\text{ m}$)
-        - **SWIR1:** Band 11 (Central Wavelength: $1610\\text{ nm}$, Native Spatial Resolution: $20\\text{ m}$)
-
-        *Advantage:* Built-up features and dry bare soil typically reflect more strongly in SWIR than in Green,
-        yielding distinctly negative MNDWI values. This suppresses urban shadow false alarms far more effectively
-        than traditional NIR-based indices.
-
-        #### 2. Otsu's Adaptive Thresholding
-        Rather than relying on arbitrary empirical thresholds, GeoInundate leverages Otsu's global bimodal histogram
-        thresholding algorithm (OpenCV implementation) to maximize between-class variance:
-
-        $$\\sigma_B^2(t) = \\omega_0(t) \\omega_1(t) \\left[ \\mu_0(t) - \\mu_1(t) \\right]^2$$
-
-        Where $\\omega_0, \\omega_1$ represent class probabilities and $\\mu_0, \\mu_1$ represent class mean intensities.
-
-        #### 3. True-Area Projected Geospatial Vectorization
-        A common pitfall in geospatial web tools is computing area directly from angular geographic coordinates
-        (Latitude/Longitude in degrees), which introduces massive latitude-dependent distortion. GeoInundate automatically
-        validates the Coordinate Reference System (CRS) and dynamically transforms vector geometries into local
-        meter-based Universal Transverse Mercator (**UTM**) or cylindrical equal-area projections prior to calculating
-        square kilometre areas.
-
-        ---
-        ### 👨‍💻 Technologies Used
-        - **Streamlit** – Responsive web application frontend
-        - **Rasterio & GDAL** – Multi-band GeoTIFF ingestion, reprojection, and affine transformations
-        - **GeoPandas & Shapely** – Spatial overlay analysis, geometry validation, and vector polygonization
-        - **OpenCV (cv2)** – Otsu adaptive thresholding and morphological filtering
-        - **Folium & Leaflet** – Multi-layer interactive geospatial mapping
-        - **Plotly** – Interactive publication-grade analytics charts
-        - **ReportLab** – Emergency flood assessment PDF generation
-        """
-    )
